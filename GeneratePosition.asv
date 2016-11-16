@@ -1,0 +1,35 @@
+function [positions] = GeneratePositions(n, nCities)
+
+%GENERATEPOSITION Generate x and y positions for n individuals
+%
+%   Generates individuals in a number of cities on [0,1]x[0,1]
+%   
+%   Inputs: 
+%       n: number of individuals
+%       nCities: number of wanted cities
+%
+%   Outputs: positions: (2 x n) matrix
+
+    R = @(u) -2*log(u(1));
+    theta = @(u) 2*pi*u(2);
+    
+    z = [R(u)*cos(theta(u)); R(u)*sin(theta(u))];
+    indiviudlasPerCity = floor(n/nCities);
+    
+    
+    for i = 1:nCities
+        
+        mu = [rand; rand];
+        varianceMatrix = [.1, 0; 0, .1];
+        A = chol(varianceMatrix);
+        distribution = @(u) mu(i) + A * z(u);
+        
+        
+        
+    end
+       
+    
+
+
+end
+
