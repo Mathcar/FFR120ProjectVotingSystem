@@ -1,0 +1,15 @@
+TODO
+
+1, create induviduals(nCities, nIndividuals): Position(x,y), carisma, opinion, interactionWeight[nbrInduvidulas]
+
+1, create fucntion for generating positions : Position(x,y)
+
+1, create function for generating interactionWeight[]
+
+2, create function for opinionTransfer(individual1, individual2)
+
+4, (create function for media)
+
+3, create function for initPlot(individuals) : ax
+
+3, create function updatePlot(individuals, ax)
