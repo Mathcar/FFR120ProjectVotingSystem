@@ -2,7 +2,11 @@ TODO
 
 1, create induviduals(nCities, nIndividuals): Position(x,y), carisma, opinion, interactionWeight[nbrInduvidulas]
 
-1, create fucntion for generating positions : Position(x,y)
+	made a function for this that uses GeneratePositions.m
+
+1, create fucntion for generating positions : Position(x,y),
+
+	1 made (make more?)
 
 1, create function for generating interactionWeight[]
 

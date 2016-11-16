@@ -7,9 +7,14 @@ function [positions] = GeneratePositions(n, nCities, citySize)
 %   Inputs: 
 %       n: number of individuals
 %       nCities: number of wanted cities
-%       citySize: size of cities, recommended in [1, 10]
+%       citySize: size of cities, recommended in [.1, 5]
 %
-%   Outputs: positions: (2 x n) matrix
+%   Outputs:
+%       positions: (2 x n) matrix
+%
+%   Make an example plot:
+%       postest = GeneratePositions(2000, 5, .7)
+%       scatter(postest(1,:), postest(2,:), '.')
 
     R = @(u) -2*log(u(1));
     theta = @(u) 2*pi*u(2);
