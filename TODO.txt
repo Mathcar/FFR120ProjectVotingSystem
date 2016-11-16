@@ -13,3 +13,5 @@ TODO
 3, create function for initPlot(individuals) : ax
 
 3, create function updatePlot(individuals, ax)
+
+test
