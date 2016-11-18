@@ -20,8 +20,8 @@ function [positions] = GeneratePositions(n, nCities, citySize)
     theta = @(u) 2*pi*u(2);
     z = @(u) [R(u)*cos(theta(u)); R(u)*sin(theta(u))];
     
-    indiviudlasPerCity = ceil(n/nCities);
-    positions = zeros(2, indiviudlasPerCity*nCities);
+    individualsPerCity = ceil(n/nCities);
+    positions = zeros(2, individualsPerCity*nCities);
     citySize = citySize * 1e-4;
     
     for i = 1:nCities
@@ -31,9 +31,9 @@ function [positions] = GeneratePositions(n, nCities, citySize)
         A = chol(varianceMatrix);
         distribution = @(u) mu + A * z(u);
         
-        for j = 1:indiviudlasPerCity
+        for j = 1:individualsPerCity
             
-            positions(:, (i-1)*indiviudlasPerCity + j) = distribution([rand; rand]);
+            positions(:, (i-1)*individualsPerCity + j) = distribution([rand; rand]);
             
         end
         
