@@ -1,21 +1,27 @@
 TODO
 
-1, create induviduals(nCities, nIndividuals): Position(x,y), carisma, opinion, interactionWeight[nbrInduvidulas]
+Done, create induviduals(nCities, nIndividuals): Position(x,y), carisma, opinion, interactionWeight[nbrInduvidulas]
 
 	made a function for this that uses GeneratePositions.m
 
-1, create fucntion for generating positions : Position(x,y),
+Done, create fucntion for generating positions : Position(x,y),
 
 	1 made (make more?)
 
-1, create function for generating interactionWeight[]
+Done, create function for generating interactionWeight[]
 
-2, create function for opinionTransfer(individual1, individual2)
+1, create function selection(induviduals[], wightList[]): (selectedIndex1, selectedIndex1) of witch induviduals that should interact.
 
-4, (create function for media)
+1, create function for opinionTransfer(individual1, individual2): (newPoinions1, newPoinions2)
 
-3, create function for initPlot(individuals) : ax
+1, create function parties(nParties, minDistance): (partiesList)
 
-3, create function updatePlot(individuals, ax)
+2, (create function for media(individuals)): opinions
+
+1, create function for initPlot(individuals, partiesList) : (figHandle, plotHandle)
+
+1, create function updatePlot(individuals, partiesList, figHandle, plotHandle ):
+
+2, implement main
 
 test
