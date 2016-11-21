@@ -48,7 +48,7 @@ function [positions] = GeneratePositions(n, nCities, citySize)
         
     end
     
-    positions = positions(:, randperm(n));
+    positions = position
 
 end
 
