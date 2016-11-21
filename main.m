@@ -6,10 +6,7 @@ proportionAffected = 0.01;
 time = 0; 
 nTimeSteps = 1e3;  
 
-
-
 [individuals] = GenerateIndividuals(n, nCities, citySize);
-weightList = individuals(5:end,:);
 
 PlotIndividualsSimple(individuals);
 
