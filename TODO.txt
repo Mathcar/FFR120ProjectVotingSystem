@@ -18,9 +18,9 @@ Done, create function for opinionTransfer(individual1, individual2): (newPoinion
 
 Done, (create function for media(individuals)): opinions
 
-1, create function for initPlot(individuals, partiesList) : (figHandle, plotHandle)
+Done, create function for initPlot(individuals, partiesList) : (figHandle, plotHandle)
 
-1, create function updatePlot(individuals, partiesList, figHandle, plotHandle ):
+Done, create function updatePlot(individuals, partiesList, figHandle, plotHandle ):
 
 Done MISSING PLOTTING  implement main
 
