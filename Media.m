@@ -11,7 +11,7 @@ function individuals = Media(individuals, proportionAffected)
     
     mediaEffectScalar = .2;
 
-    n = size(ind, 2);
+    n = size(individuals, 2);
     nAffected = floor(proportionAffected*n);
     indicesAffected = randperm(n, nAffected);
     

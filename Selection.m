@@ -15,11 +15,11 @@ function [ selectedIndex1, selectedIndex2 ] = Selection( individuals )
     
     rN = rand;
     selectedIndex2 = 1;
-    threshold = weightList(selectedIndex1, selectedIndex2);
+    threshold = weightList(selectedIndex2, selectedIndex1);
     
     while rN > threshold
         selectedIndex2 = selectedIndex2 + 1;
-        threshold = threshold + weightList(selectedIndex1, selectedIndex2);
+        threshold = threshold + weightList(selectedIndex2, selectedIndex1);
     end
     
 end
