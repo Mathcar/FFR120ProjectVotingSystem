@@ -10,18 +10,18 @@ Done, create fucntion for generating positions : Position(x,y),
 
 Done, create function for generating interactionWeight[]
 
-1, create function selection(induviduals[], wightList[]): (selectedIndex1, selectedIndex1) of witch induviduals that should interact.
+Done, create function selection(induviduals[], wightList[]): (selectedIndex1, selectedIndex1) of witch induviduals that should interact.
 
-1, create function for opinionTransfer(individual1, individual2): (newPoinions1, newPoinions2)
+Done, create function for opinionTransfer(individual1, individual2): (newPoinions1, newPoinions2)
 
-1, create function parties(nParties, minDistance): (partiesList)
+1,  create function parties(nParties, minDistance): (partiesList)
 
-2, (create function for media(individuals)): opinions
+Done, (create function for media(individuals)): opinions
 
 1, create function for initPlot(individuals, partiesList) : (figHandle, plotHandle)
 
 1, create function updatePlot(individuals, partiesList, figHandle, plotHandle ):
 
-2, implement main
+Done MISSING PLOTTING  implement main
 
 test
