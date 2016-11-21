@@ -10,15 +10,15 @@ function [ selectedIndex1, selectedIndex2 ] = Selection( weightList )
 %    selectedIndex1: index of the first selected induvidual
 %    selectedIndex2: index of the second selected induvidual
 
-    selectedIndex1 = irand(size(weightList,2));
+    selectedIndex1 = randi(size(weightList, 2));
     
     rN = rand;
     selectedIndex2 = 1;
-    tresshold = weightList(selectedIndex1, selectedIndex2);
+    threshold = weightList(selectedIndex1, selectedIndex2);
     
-    while rN > tresshold
+    while rN > threshold
         selectedIndex2 = selectedIndex2 + 1;
-        tresshold = tresshold + weightList(selectedIndex1, selectedIndex2);
+        threshold = threshold + weightList(selectedIndex1, selectedIndex2);
     end
     
 end

@@ -15,7 +15,10 @@ function [positions] = GeneratePositions(n, nCities, citySize)
 %   Make an example plot:
 %       postest = GeneratePositions(2000, 5, .7)
 %       scatter(postest(1,:), postest(2,:), '.')
-
+    
+    percentRandom = 4;
+    
+    nRandom = floor(percentRandom/100 * n);
     R = @(u) -2*log(u(1));
     theta = @(u) 2*pi*u(2);
     z = @(u) [R(u)*cos(theta(u)); R(u)*sin(theta(u))];
@@ -49,6 +52,13 @@ function [positions] = GeneratePositions(n, nCities, citySize)
     end
     
     positions = positions(:, randperm(n));
+    
+    for i = 1:nRandom
+        
+        positions(:, i) = [rand(); rand()];
+        
+    end
+    
+    positions = positions(:, randperm(n));
 
 end
-
