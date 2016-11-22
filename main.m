@@ -9,6 +9,7 @@ plotInterval = 1000;
 transferEffect = .1;
 nParties = 5;
 minDistance = .1;
+mediaEffectScalar = .2;
 
 partiesList = Parties(nParties, minDistance);
 [individuals, interactionMatrix] = GenerateIndividuals(n, nCities, citySize);
@@ -27,7 +28,7 @@ while( time < nTimeSteps)
     individuals(4,selectedIndex1)= newOpinion1;
     individuals(4,selectedIndex2)= newOpinion2;
     
-    individuals = Media(individuals, proportionAffected);
+    individuals = Media(individuals, proportionAffected, mediaEffectScalar);
     
     if( mod(time, plotInterval) == 0)
         UpdatePlot(individuals, partiesList, figHandle, plotHandle)

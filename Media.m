@@ -1,4 +1,4 @@
-function individuals = Media(individuals, proportionAffected)
+function individuals = Media(individuals, proportionAffected, mediaEffectScalar)
 % MEDIA Media affecting some percentage of all individuals
 %
 %   Inputs:
@@ -8,8 +8,6 @@ function individuals = Media(individuals, proportionAffected)
 %
 %   Outputs:
 %       individuals: All individuals
-    
-    mediaEffectScalar = .2;
 
     n = size(individuals, 2);
     nAffected = floor(proportionAffected*n);
