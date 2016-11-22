@@ -9,14 +9,16 @@ nTimeSteps = 1e6;
 plotInterval = 100;
 % OpinionTransfer
 transferEffect = .01;
+ruralInteraction = .005;
 % Parties
 nParties = 5;
 minDistance = .5;
 % Media
 proportionAffected = .001;
-mediaEffectScalar = .1;
+mediaEffectScalar = .0008;
 
 
+nRural = floor(percentRural/100 * n);
 partiesList = Parties(nParties, minDistance);
 [individuals, interactionMatrix] = GenerateIndividuals(n, nCities, citySize, percentRural);
 
@@ -28,7 +30,7 @@ while( time < nTimeSteps)
     
     time = time + 1;
     
-    [ selectedIndex1, selectedIndex2 ] = Selection(interactionMatrix);
+    [ selectedIndex1, selectedIndex2 ] = Selection(interactionMatrix, nRural, ruralInteraction);
     individual1 = individuals(:,selectedIndex1);
     individual2 =  individuals(:,selectedIndex2);
     

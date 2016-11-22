@@ -1,9 +1,10 @@
-function [ selectedIndex1, selectedIndex2 ] = Selection( weightList )
+function [ selectedIndex1, selectedIndex2 ] = Selection( weightList, nRural, ruralInteraction )
 %     Selecting two induviduals with a probability depending on the
 %     weights from the weightList.
 %     
 %   Inputs: 
 %    individuals: All individuals
+%    nRural: number of rural individualss
 %
 %   Outputs:
 %    selectedIndex1: index of the first selected induvidual
@@ -11,7 +12,17 @@ function [ selectedIndex1, selectedIndex2 ] = Selection( weightList )
 
 %     weightList = individuals(5:end, :);
 
-    selectedIndex1 = randi(size(weightList, 2));
+    n = size(weightList, 2);
+    
+    if rand < ruralInteraction * nRural/n
+    
+        selectedIndex1 = randi(nRural);
+        
+    else
+        
+        selectedIndex1 = randi(n - nRural) + nRural;
+        
+    end
     
     rN = rand;
     selectedIndex2 = 1;
