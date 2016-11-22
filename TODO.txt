@@ -1,7 +1,5 @@
 TODO
 
-add time series of party support
-
 Done, create induviduals(nCities, nIndividuals): Position(x,y), carisma, opinion, interactionWeight[nbrInduvidulas]
 
 	made a function for this that uses GeneratePositions.m
@@ -27,3 +25,26 @@ Done, create function updatePlot(individuals, partiesList, figHandle, plotHandle
 Done MISSING PLOTTING  implement main
 
 test
+
+
+TODO 22/11 
+
+SET: 15 on percentRural, ruralInteraction = 0.005, nCities = 5, n = 1000, minDistance = 0.1, nTrials = 20
+
+For each parameter setting
+
+1, Get graphs of how party support varies with time
+
+1, Get graphs of how opinion mean and variance varies with time
+
+1, test funktion
+
+1, generate testSet: invididuals, partyList AND OTHERS 
+
+Parameters to vary: 
+
+1, mediaEffectScalar - When do we see change from all going towards one party to the case that continues to vary? 
+
+1, transferEffect - (1 both individuals get the same opinion, 0 no change)
+
+2, proportionAffected - When do we see change from all going towards one party to the case that continues to vary? 
