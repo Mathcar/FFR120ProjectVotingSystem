@@ -5,7 +5,7 @@ n = 1e3;
 nCities = 5; 
 citySize = .5;
 % Timesteps
-nTimeSteps = 1e6;  
+nTimeSteps = 1e3;  
 plotInterval = 100;
 % OpinionTransfer
 transferEffect = .01;
@@ -20,7 +20,7 @@ mediaEffectScalar = .1;
 partiesList = Parties(nParties, minDistance);
 [individuals, interactionMatrix] = GenerateIndividuals(n, nCities, citySize, percentRural);
 
-[figHandle, plotHandle] = InitPlot(individuals, partiesList);
+[figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps);
 
 time = 0;
 
@@ -39,7 +39,7 @@ while( time < nTimeSteps)
     individuals = Media(individuals, proportionAffected, mediaEffectScalar);
     
     if( mod(time, plotInterval) == 0)
-        UpdatePlot(individuals, partiesList, figHandle, plotHandle)
+        UpdatePlot(individuals, partiesList, figHandle, plotHandle, time)
     end
 end
 

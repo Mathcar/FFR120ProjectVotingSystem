@@ -1,14 +1,16 @@
-function [figHandle, plotHandle] = InitPlot(individuals, partiesList)
+function [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps)
     nIndividuals = size(individuals, 2);
     nParties = length(partiesList);
-    nHandles = 1 + nParties;
+    nStatistics = 2;
+    nHandles = 1 + nParties + nStatistics + nParties;
+    
     
     
     figHandle = figure('units','normalized','position',[.1 .1 .8 .6]);
     
     plotHandle = gobjects(nHandles,1);
     
-    subplot(121);
+    subplot(221);
     caxis([0 1])
     colorbar
     axis([0 1 0 1]);
@@ -24,7 +26,7 @@ function [figHandle, plotHandle] = InitPlot(individuals, partiesList)
     hold off
     
     
-    subplot(122);
+    subplot(222);
     axis([0 nParties+1 0 1]);
     axis square
     title('')
@@ -41,4 +43,36 @@ function [figHandle, plotHandle] = InitPlot(individuals, partiesList)
     end
     hold off
     
+    subplot(223);
+    axis([0 nTimeSteps 0 1]);
+    axis square
+    title('')
+    xlabel('Time')
+    ylabel('')
+    
+    statistics = CalcStatistics(individuals);
+    statisticsColors = {'b', 'r'};
+    statisticsLabels = {'Mean', 'Variance'};
+    
+    for i = 1:nStatistics
+        plotHandle(i+1+nParties) = animatedline('color', statisticsColors{i});
+        addpoints(plotHandle(i+1+nParties), 0, statistics(i))
+    end
+    legend(statisticsLabels{:})
+    
+    subplot(224);
+    axis([0 nTimeSteps 0 1]);
+    axis square
+    title('')
+    xlabel('Time')
+    ylabel('Fraction of supporters')
+    
+    hold on
+    for i=1:nParties
+        plotHandle(i+1+nParties + nStatistics) = animatedline('color', partyColors(i, :));
+        addpoints(plotHandle(i+1+nParties + nStatistics), 0, counts(i)/nIndividuals)
+    end
+    hold off
+    
+    drawnow
 end
