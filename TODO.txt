@@ -14,7 +14,7 @@ Done, create function selection(induviduals[], wightList[]): (selectedIndex1, se
 
 Done, create function for opinionTransfer(individual1, individual2): (newPoinions1, newPoinions2)
 
-1,  create function parties(nParties, minDistance): (partiesList)
+Done, create function parties(nParties, minDistance): (partiesList)
 
 Done, (create function for media(individuals)): opinions
 
