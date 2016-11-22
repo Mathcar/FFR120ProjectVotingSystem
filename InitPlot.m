@@ -3,14 +3,11 @@ function [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps
     nParties = length(partiesList);
     nStatistics = 2;
     nHandles = 1 + nParties + nStatistics + nParties;
-    
-    
-    
     figHandle = figure('units','normalized','position',[.1 .1 .8 .6]);
-    
     plotHandle = gobjects(nHandles,1);
     
-    subplot(221);
+    %Map
+    subplot(121)
     caxis([0 1])
     colorbar
     axis([0 1 0 1]);
@@ -18,18 +15,15 @@ function [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps
     title('')
     xlabel('x')
     ylabel('y')
-    
-    
-    
     hold on
     plotHandle(1) = scatter(individuals(1, :), individuals(2, :), 20, individuals(4, :), 'filled');
     hold off
     
-    
-    subplot(222);
-    axis([0 nParties+1 0 1]);
-    axis square
+    %Popularity bars
+    subplot(322)
+    axis([0 nParties+1 0 1])
     title('')
+    xticks(1:nParties)
     xlabel('Party')
     ylabel('Fraction of supporters')
     
@@ -43,9 +37,9 @@ function [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps
     end
     hold off
     
-    subplot(223);
+    %Statistics history
+    subplot(324);
     axis([0 nTimeSteps 0 1]);
-    axis square
     title('')
     xlabel('Time')
     ylabel('')
@@ -60,9 +54,9 @@ function [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps
     end
     legend(statisticsLabels{:})
     
-    subplot(224);
+    %Popularity history
+    subplot(326);
     axis([0 nTimeSteps 0 1]);
-    axis square
     title('')
     xlabel('Time')
     ylabel('Fraction of supporters')
