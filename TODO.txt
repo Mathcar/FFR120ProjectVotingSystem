@@ -1,5 +1,7 @@
 TODO
 
+add time series of party support
+
 Done, create induviduals(nCities, nIndividuals): Position(x,y), carisma, opinion, interactionWeight[nbrInduvidulas]
 
 	made a function for this that uses GeneratePositions.m
