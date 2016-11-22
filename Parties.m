@@ -13,19 +13,17 @@ function partiesList = Parties(nParties, minDistance)
         minDistance = .95/nParties;
     end
     
-    done = 0;
+    distanceToBeDistributed = 1 - minDistance*(nParties - 1);
     
-    while not(done)
-        
-        partiesList = sort(rand(nParties, 1));
-        done = 1;
-        
-        for i = 2:nParties
-            if partiesList(i) - partiesList(i-1) < minDistance
-                done = 0;
-            end
-        end
+    distances = rand(nParties - 1, 1);
+    distances = distanceToBeDistributed .* distances ./ sum(distances) ...
+        + minDistance;
+    partiesList = zeros(nParties, 1);
     
+    for i = 2:nParties
+        
+        partiesList(i) = partiesList(i-1) + distances(i-1);
+        
     end
     
 end
