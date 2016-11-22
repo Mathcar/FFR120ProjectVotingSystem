@@ -1,4 +1,4 @@
-function [individuals ,interactionMat] = GenerateIndividuals(n, nCities, citySize)
+function [individuals ,interactionMat] = GenerateIndividuals(n, nCities, citySize, percentRural)
 
 %GENERATEINDIVIDUALS Generate n individuals using GeneratePositions.m
 %
@@ -17,7 +17,7 @@ function [individuals ,interactionMat] = GenerateIndividuals(n, nCities, citySiz
 %           with all n individuals based on distance.
 %           To self the probability is set to 0.
 
-    positions = GeneratePositions(n, nCities, citySize);
+    positions = GeneratePositions(n, nCities, citySize, percentRural);
     
     charismas = rand(1, n);
     

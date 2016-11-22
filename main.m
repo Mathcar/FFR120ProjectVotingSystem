@@ -1,20 +1,28 @@
 %-------------------FFR120, Voting system, Main--------------------------%
+% Individuals
+percentRural = 4;
 n = 1e3; 
-nCities = 10; 
-citySize = 5; 
-proportionAffected = 0.01;
+nCities = 4; 
+citySize = .005;
+% Timesteps
 nTimeSteps = 1e6;  
-time = 0;
-plotInterval = 1000;
+plotInterval = 100;
+% OpinionTransfer
 transferEffect = .1;
+% Parties
 nParties = 5;
 minDistance = .1;
+% Media
+proportionAffected = 0.01;
 mediaEffectScalar = .2;
 
+
 partiesList = Parties(nParties, minDistance);
-[individuals, interactionMatrix] = GenerateIndividuals(n, nCities, citySize);
+[individuals, interactionMatrix] = GenerateIndividuals(n, nCities, citySize, percentRural);
 
 [figHandle, plotHandle] = InitPlot(individuals, partiesList);
+
+time = 0;
 
 while( time < nTimeSteps)
     

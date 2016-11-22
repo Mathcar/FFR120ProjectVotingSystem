@@ -1,4 +1,4 @@
-function [positions] = GeneratePositions(n, nCities, citySize)
+function [positions] = GeneratePositions(n, nCities, citySize, percentRural)
 
 %GENERATEPOSITIONS Generate x and y positions for n individuals
 %
@@ -16,9 +16,7 @@ function [positions] = GeneratePositions(n, nCities, citySize)
 %       postest = GeneratePositions(2000, 5, .7)
 %       scatter(postest(1,:), postest(2,:), '.')
     
-    percentRandom = 4;
-    
-    nRandom = floor(percentRandom/100 * n);
+    nRandom = floor(percentRural/100 * n);
     R = @(u) -2*log(u(1));
     theta = @(u) 2*pi*u(2);
     z = @(u) [R(u)*cos(theta(u)); R(u)*sin(theta(u))];
