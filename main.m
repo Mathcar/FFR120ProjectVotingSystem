@@ -4,11 +4,12 @@ nCities =10;
 citySize = 5; 
 proportionAffected = 0.01;
 nTimeSteps = 1e3;  
-time = 0; 
+time = 0;
+partiesList = [0.25 0.75]';
 
 [individuals, interactionMatrix] = GenerateIndividuals(n, nCities, citySize);
 
-PlotIndividualsSimple(individuals);
+[figHandle, plotHandle] = InitPlot(individuals, partiesList);
 
 while( time < nTimeSteps)
     
@@ -24,5 +25,6 @@ while( time < nTimeSteps)
     
     individuals = Media(individuals, proportionAffected);
     
+    UpdatePlot(individuals, partiesList, figHandle, plotHandle)
 end
 
