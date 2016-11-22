@@ -6,7 +6,7 @@ proportionAffected = 0.01;
 nTimeSteps = 1e3;  
 time = 0; 
 
-[individuals] = GenerateIndividuals(n, nCities, citySize);
+[individuals, interactionMatrix] = GenerateIndividuals(n, nCities, citySize);
 
 PlotIndividualsSimple(individuals);
 
@@ -14,7 +14,7 @@ while( time < nTimeSteps)
     
     time = time + 1;
     
-    [ selectedIndex1, selectedIndex2 ] = Selection(individuals);
+    [ selectedIndex1, selectedIndex2 ] = Selection(interactionMatrix);
     individual1 = individuals(:,selectedIndex1);
     individual2 =  individuals(:,selectedIndex2);
     

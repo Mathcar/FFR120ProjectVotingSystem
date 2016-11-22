@@ -1,4 +1,4 @@
-function [individuals] = GenerateIndividuals(n, nCities, citySize)
+function [individuals ,interactionMat] = GenerateIndividuals(n, nCities, citySize)
 
 %GENERATEINDIVIDUALS Generate n individuals using GeneratePositions.m
 %
@@ -47,8 +47,8 @@ function [individuals] = GenerateIndividuals(n, nCities, citySize)
         
     end
     
-    individuals = [positions; charismas; opinions; ...
-        interactionWeightsMat];
+    individuals = [positions; charismas; opinions];
+    interactionMat = interactionWeightsMat;
 
 end
 
