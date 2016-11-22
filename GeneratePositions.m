@@ -16,7 +16,7 @@ function [positions] = GeneratePositions(n, nCities, citySize, percentRural)
 %       postest = GeneratePositions(2000, 5, .7)
 %       scatter(postest(1,:), postest(2,:), '.')
     
-    nRandom = floor(percentRural/100 * n);
+    nRural = floor(percentRural/100 * n);
     R = @(u) -2*log(u(1));
     theta = @(u) 2*pi*u(2);
     z = @(u) [R(u)*cos(theta(u)); R(u)*sin(theta(u))];
@@ -44,7 +44,7 @@ function [positions] = GeneratePositions(n, nCities, citySize, percentRural)
     
     positions = positions(:, randperm(n));
     
-    for i = 1:nRandom
+    for i = 1:nRural
         
         positions(:, i) = [rand(); rand()];
         
@@ -56,7 +56,5 @@ function [positions] = GeneratePositions(n, nCities, citySize, percentRural)
         positions(i, :) = positions(i, :) / max(positions(i, :));
         
     end
-    
-    positions = positions(:, randperm(n));
 
 end
