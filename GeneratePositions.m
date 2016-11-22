@@ -42,18 +42,18 @@ function [positions] = GeneratePositions(n, nCities, citySize, percentRural)
     
     positions = positions(:, 1:n);
     
-    for i = 1:2
-        
-        positions(i, :) = positions(i, :) - min(positions(i, :));
-        positions(i, :) = positions(i, :) / max(positions(i, :));
-        
-    end
-    
     positions = positions(:, randperm(n));
     
     for i = 1:nRandom
         
         positions(:, i) = [rand(); rand()];
+        
+    end
+    
+    for i = 1:2
+        
+        positions(i, :) = positions(i, :) - min(positions(i, :));
+        positions(i, :) = positions(i, :) / max(positions(i, :));
         
     end
     

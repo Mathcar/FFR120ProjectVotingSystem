@@ -2,7 +2,7 @@
 % Individuals
 percentRural = 4;
 n = 1e3; 
-nCities = 4; 
+nCities = 1; 
 citySize = .005;
 % Timesteps
 nTimeSteps = 1e6;  
