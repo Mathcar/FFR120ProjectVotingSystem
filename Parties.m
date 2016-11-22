@@ -6,6 +6,8 @@ function partiesList = Parties(nParties, minDistance)
 %       minDistance: minimum distance between parties
 %
 %   Output:
+%       partiesList: list of parties on the interval [0, 1]
+
 
     if (minDistance*nParties > .95)
         minDistance = .95/nParties;
