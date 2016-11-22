@@ -31,10 +31,11 @@ function [individuals ,interactionMat] = GenerateIndividuals(n, nCities, citySiz
         
         for j = 1:n
             
-            distances(j) = sqrt((positions(1, j) - positions(1, i))^2 + ...
-                (positions(2, j) - positions(2, i))^2);
+            distances(j) = (positions(1, j) - positions(1, i))^2 + ...
+                (positions(2, j) - positions(2, i))^2;
             
         end
+        distances = sqrt(distances);
         
         distances(i) = inf;
         
