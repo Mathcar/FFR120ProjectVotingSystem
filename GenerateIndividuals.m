@@ -39,7 +39,7 @@ function [individuals ,interactionMat] = GenerateIndividuals(n, nCities, citySiz
         
         distances(i) = inf;
         
-        interactionWeights = 1./distances; % 1/r
+        interactionWeights = 1./distances.^2; % 1/r^2
         
         interactionWeights = interactionWeights ./ ...
             sum(interactionWeights);

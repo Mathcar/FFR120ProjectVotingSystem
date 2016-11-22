@@ -2,19 +2,19 @@
 % Individuals
 percentRural = 4;
 n = 1e3; 
-nCities = 1; 
-citySize = .005;
+nCities = 5; 
+citySize = .5;
 % Timesteps
 nTimeSteps = 1e6;  
 plotInterval = 100;
 % OpinionTransfer
-transferEffect = .1;
+transferEffect = .01;
 % Parties
 nParties = 5;
-minDistance = .1;
+minDistance = .5;
 % Media
-proportionAffected = 0.01;
-mediaEffectScalar = .2;
+proportionAffected = .001;
+mediaEffectScalar = .1;
 
 
 partiesList = Parties(nParties, minDistance);
