@@ -6,7 +6,7 @@ function UpdatePlot(individuals, partiesList, figHandle, plotHandle, time)
     %Map
     set(plotHandle(1), 'XData', individuals(1,:));
     set(plotHandle(1), 'YData', individuals(2,:));
-    set(plotHandle(1), 'CData', individuals(4,:));
+    set(plotHandle(1), 'CData', individuals(3,:));
     
     
     %Popularity bars

@@ -16,7 +16,7 @@ function [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps
     xlabel('x')
     ylabel('y')
     hold on
-    plotHandle(1) = scatter(individuals(1, :), individuals(2, :), 20, individuals(4, :), 'filled');
+    plotHandle(1) = scatter(individuals(1, :), individuals(2, :), 20, individuals(3, :), 'filled');
     hold off
     
     %Popularity bars

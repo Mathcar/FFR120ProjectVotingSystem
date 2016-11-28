@@ -1,10 +1,10 @@
 function [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = OpinionTransfer( individual1, individual2, transferEffect)
     
-    opinion1 = individual1(4);
-    opinion2 = individual2(4);
+    opinion1 = individual1(3);
+    opinion2 = individual2(3);
     
-    certainty1 = individual1(3);
-    certainty2 = individual2(3);
+    certainty1 = individual1(4);
+    certainty2 = individual2(4);
     
     % I chose the number 0.1 as a guesstimation.
     % We might need to tweek this number.
@@ -26,7 +26,7 @@ function [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = OpinionTra
     newOpinion1 = opinion1 + transferEffect*(certainty2/(certainty2 + certainty1+eps))*(opinion2-opinion1);
     newOpinion2 = opinion2 + transferEffect*(certainty1/(certainty2 + certainty1 + eps))*(opinion1-opinion2);
     
-end % Tänker att kanske opinion ändras för mycket här? att vi borde ha en 
-    % faktor ~.2 framför andra termen i newOpinion. Just nu möts de på
+end % T??nker att kanske opinion ??ndras f??r mycket h??r? att vi borde ha en 
+    % faktor ~.2 framf??r andra termen i newOpinion. Just nu m??ts de p??
     % mitten
 
