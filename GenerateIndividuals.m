@@ -23,6 +23,8 @@ function [individuals ,interactionMat] = GenerateIndividuals(n, nCities, citySiz
     
     opinions = rand(1, n);
     
+    certaintys = rand(1, n);
+    
     interactionWeightsMat = zeros(n, n);
     
     for i = 1:n
@@ -48,7 +50,7 @@ function [individuals ,interactionMat] = GenerateIndividuals(n, nCities, citySiz
         
     end
     
-    individuals = [positions; charismas; opinions];
+    individuals = [positions; charismas; opinions; certaintys];
     interactionMat = interactionWeightsMat;
 
 end
