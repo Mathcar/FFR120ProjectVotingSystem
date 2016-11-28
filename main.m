@@ -5,7 +5,7 @@ n = 1e3;
 nCities = 5; 
 citySize = .5;
 % Timesteps
-nTimeSteps = 1e3;  
+nTimeSteps = 1e5;  
 plotInterval = 100;
 % OpinionTransfer
 transferEffect = .01;

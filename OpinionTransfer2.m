@@ -23,8 +23,8 @@ function [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = OpinionTra
         newCertainty2 = 0;
     end
     
-    newOpinion1 = opinion1 + transferEffect*(certainty2/(certainty2 + certainty1))*(opinion2-opinion1);
-    newOpinion2 = opinion2 + transferEffect*(certainty1/(certainty2 + certainty1))*(opinion1-opinion2);
+    newOpinion1 = opinion1 + transferEffect*(certainty2/(certainty2 + certainty1+eps))*(opinion2-opinion1);
+    newOpinion2 = opinion2 + transferEffect*(certainty1/(certainty2 + certainty1 + eps))*(opinion1-opinion2);
     
 end % Tänker att kanske opinion ändras för mycket här? att vi borde ha en 
     % faktor ~.2 framför andra termen i newOpinion. Just nu möts de på
