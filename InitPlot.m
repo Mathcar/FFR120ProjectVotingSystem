@@ -23,7 +23,7 @@ function [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps
     subplot(322)
     axis([0 nParties+1 0 1])
     title('')
-    xticks(1:nParties)
+    set(gca, 'XTick', 1:nParties)
     xlabel('Party')
     ylabel('Fraction of supporters')
     
