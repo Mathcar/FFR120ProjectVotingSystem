@@ -35,10 +35,10 @@ while( time < nTimeSteps)
     individual2 =  individuals(:,selectedIndex2);
     
     [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = OpinionTransfer2( individual1, individual2, transferEffect );
-    individuals(4,selectedIndex1)= newOpinion1;
-    individuals(4,selectedIndex2)= newOpinion2;
-    individuals(5,selectedIndex1)= newCertainty1;
-    individuals(5,selectedIndex2)= newCertainty2;
+    individuals(3,selectedIndex1)= newOpinion1;
+    individuals(3,selectedIndex2)= newOpinion2;
+    individuals(4,selectedIndex1)= newCertainty1;
+    individuals(4,selectedIndex2)= newCertainty2;
     
     individuals = Media(individuals, proportionAffected, mediaEffectScalar);
     
