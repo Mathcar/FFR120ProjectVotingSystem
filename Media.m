@@ -18,8 +18,8 @@ function individuals = Media(individuals, proportionAffected, mediaEffectScalar)
     
     for i = 1:nAffected
         
-        newOpinion = individuals(4, indicesAffected(i)) + ...
-            mediaPosition*mediaEffect;
+        newOpinion = individuals(3, indicesAffected(i)) + ...
+            mediaPosition*mediaEffect*(1-individuals(4, indicesAffected(i)));
         
         individuals(4, indicesAffected(i)) = newOpinion - ...
             (newOpinion<0)*newOpinion - (newOpinion>1)*(newOpinion-1);
