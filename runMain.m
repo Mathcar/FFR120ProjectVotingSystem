@@ -4,7 +4,7 @@ function [counts,individuals] = runMain(individuals,interactionMatrix,partiesLis
 time = 1;
 counts =zeros(nTimeSteps +1 ,length(partiesList));
 counts(time,:) = CountVotes(individuals, partiesList);
-    while( time < nTimeSteps)
+    while( time < (nTimeSteps+1))
 
         time = time + 1;
 

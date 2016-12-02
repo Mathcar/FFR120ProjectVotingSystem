@@ -4,7 +4,7 @@ load('binaryIndividuals.mat')
 n =size(individuals,2);
 percentRural = 40; 
 % Timesteps
-nTimeSteps = 10;  
+nTimeSteps = 39;  
 plotInterval = 1e7;
 % OpinionTransfer
 transferEffect = .1;
@@ -20,7 +20,8 @@ partiesList = Parties(nParties, minDistance);
 %-------------------------------------------------------------------------
 nTrials = 10; 
 individualMatrix = zeros(4,1000,nTrials);
-threshold = 0.2
+threshold = 0.2;
+
 for iTrial =1:nTrials
 [counts, individuals] = runMain(individuals,interactionMatrix,partiesList, proportionAffected,...
     mediaEffectScalar,transferEffect,threshold,ruralInteraction,nRural,nTimeSteps,plotInterval);
