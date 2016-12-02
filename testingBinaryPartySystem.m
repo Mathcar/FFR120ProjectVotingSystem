@@ -20,13 +20,17 @@ partiesList = Parties(nParties, minDistance);
 %-------------------------------------------------------------------------
 nTrials = 10; 
 individualMatrix = zeros(4,1000,nTrials);
+countsMatrix = zeros(nTimeSteps,2,nTrials);
+statMat = zeros(2,nTimeSteps,nTrials);
 threshold = 0.2;
 
 for iTrial =1:nTrials
-[counts, finalIndividuals] = runMain(individuals,interactionMatrix,partiesList, proportionAffected,...
+[counts, statistics,finalIndividuals] = runMain(individuals,interactionMatrix,partiesList, proportionAffected,...
     mediaEffectScalar,transferEffect,threshold,ruralInteraction,nRural,nTimeSteps,plotInterval);
 plot(1:(nTimeSteps),counts(:,1)/1000,'DisplayName',num2str(iTrial))
 hold on 
 
+countsMatrix(:,:,iTrial) = counts;
+statMat(:,:,iTrial) = statistics; 
 individualMatrix(:,:,iTrial) = finalIndividuals;
 end
