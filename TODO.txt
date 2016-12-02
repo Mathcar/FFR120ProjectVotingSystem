@@ -48,3 +48,11 @@ Parameters to vary:
 1, transferEffect - (1 both individuals get the same opinion, 0 no change)
 
 2, proportionAffected - When do we see change from all going towards one party to the case that continues to vary? 
+
+number of parties
+
+number of cities
+
+transfer effect
+
+media effect
