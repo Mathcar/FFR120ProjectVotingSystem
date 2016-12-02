@@ -1,8 +1,9 @@
 function [counts,individuals] = runMain(individuals,interactionMatrix,partiesList, proportionAffected,mediaEffectScalar,transferEffect,ruralInteraction,nRural,nTimeSteps,plotInterval)
 
 % [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps);
-time = 0;
-counts =zeros(nTimeSteps,length(partiesList));
+time = 1;
+counts =zeros(nTimeSteps +1 ,length(partiesList));
+counts(time,:) = CountVotes(individuals, partiesList);
     while( time < nTimeSteps)
 
         time = time + 1;
