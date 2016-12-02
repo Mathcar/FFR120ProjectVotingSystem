@@ -17,6 +17,7 @@ function [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = ...
     certainty1 = individual1(4);
     certainty2 = individual2(4);
     
+
     newCertainty1 = certainty1 + threshold - abs(opinion1-opinion2);
     newCertainty2 = certainty2 + threshold - abs(opinion1-opinion2);
     
