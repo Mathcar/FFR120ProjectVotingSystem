@@ -1,15 +1,24 @@
-function [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = OpinionTransfer( individual1, individual2, transferEffect)
-    
+function [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = ... 
+    OpinionTransfer2( individual1, individual2, transferEffect, threshold)
+% OPINIONTRANSFER Transfer opinion between two individuals
+%
+%   Inputs:
+%       individuals1, 2: Individuals subject to transfer
+%       transferEffect:     (between 0 and 1)
+%       threshold: Constant added every time step
+%
+%   Outputs:
+%       newOpinion1, 2: The new opinions of individual 1 and 2
+%       newCertainty1, 2: The new certainties of intidivuals 1 and 2
+
     opinion1 = individual1(3);
     opinion2 = individual2(3);
     
     certainty1 = individual1(4);
     certainty2 = individual2(4);
     
-    % I chose the number 0.1 as a guesstimation.
-    % We might need to tweek this number.
-    newCertainty1 = certainty1 + 0.1 - abs(opinion1-opinion2);
-    newCertainty2 = certainty2 + 0.1 - abs(opinion1-opinion2);
+    newCertainty1 = certainty1 + threshold - abs(opinion1-opinion2);
+    newCertainty2 = certainty2 + threshold - abs(opinion1-opinion2);
     
     if newCertainty1 > 1
         newCertainty1 = 1;
@@ -23,10 +32,10 @@ function [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = OpinionTra
         newCertainty2 = 0;
     end
     
-    newOpinion1 = opinion1 + transferEffect*(certainty2/(certainty2 + certainty1+eps))*(opinion2-opinion1);
-    newOpinion2 = opinion2 + transferEffect*(certainty1/(certainty2 + certainty1 + eps))*(opinion1-opinion2);
+    newOpinion1 = opinion1 + transferEffect*...
+        (certainty2/(certainty2 + certainty1+eps))*(opinion2-opinion1);
+    newOpinion2 = opinion2 + transferEffect*...
+        (certainty1/(certainty2 + certainty1 + eps))*(opinion1-opinion2);
     
-end % T??nker att kanske opinion ??ndras f??r mycket h??r? att vi borde ha en 
-    % faktor ~.2 framf??r andra termen i newOpinion. Just nu m??ts de p??
-    % mitten
+end
 

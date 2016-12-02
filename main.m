@@ -1,6 +1,6 @@
 %-------------------FFR120, Voting system, Main--------------------------%
 % Individuals
-percentRural = 40;
+percentRural = 10;
 n = 1e3; 
 nCities = 5; 
 citySize = .5;
@@ -10,6 +10,7 @@ plotInterval = 100;
 % OpinionTransfer
 transferEffect = .01;
 ruralInteraction = .05;
+threshold = .1;
 % Parties
 nParties = 10;
 minDistance = .0005;
@@ -30,11 +31,13 @@ while( time < nTimeSteps)
     
     time = time + 1;
     
-    [ selectedIndex1, selectedIndex2 ] = Selection(interactionMatrix, nRural, ruralInteraction);
+    [ selectedIndex1, selectedIndex2 ] = Selection(interactionMatrix, ...
+        nRural, ruralInteraction);
     individual1 = individuals(:,selectedIndex1);
     individual2 =  individuals(:,selectedIndex2);
     
-    [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = OpinionTransfer2( individual1, individual2, transferEffect );
+    [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] =  ...
+        OpinionTransfer2( individual1, individual2, transferEffect, threshold );
     individuals(3,selectedIndex1)= newOpinion1;
     individuals(3,selectedIndex2)= newOpinion2;
     individuals(4,selectedIndex1)= newCertainty1;
