@@ -6,10 +6,11 @@ function [ newOpinion1, newOpinion2, newCertainty1, newCertainty2 ] = OpinionTra
     certainty1 = individual1(4);
     certainty2 = individual2(4);
     
+    threshold = 0.2;
     % I chose the number 0.1 as a guesstimation.
     % We might need to tweek this number.
-    newCertainty1 = certainty1 + 0.1 - abs(opinion1-opinion2);
-    newCertainty2 = certainty2 + 0.1 - abs(opinion1-opinion2);
+    newCertainty1 = certainty1 + threshold - abs(opinion1-opinion2);
+    newCertainty2 = certainty2 + threshold - abs(opinion1-opinion2);
     
     if newCertainty1 > 1
         newCertainty1 = 1;

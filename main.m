@@ -5,17 +5,17 @@ n = 1e3;
 nCities = 5; 
 citySize = .5;
 % Timesteps
-nTimeSteps = 1e5;  
-plotInterval = 100;
+nTimeSteps = 1e6;  
+plotInterval = 100000;
 % OpinionTransfer
-transferEffect = .01;
+transferEffect = .1;
 ruralInteraction = .05;
 % Parties
-nParties = 10;
+nParties = 2;
 minDistance = .0005;
 % Media
 proportionAffected = .001;
-mediaEffectScalar = .2;
+mediaEffectScalar = 0;
 
 
 nRural = floor(percentRural/100 * n);
