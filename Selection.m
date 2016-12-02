@@ -24,13 +24,5 @@ function [ selectedIndex1, selectedIndex2 ] = Selection( weightList, nRural, rur
         
     end
     
-    rN = rand;
-    selectedIndex2 = 1;
-    threshold = weightList(selectedIndex2, selectedIndex1);
-    
-    while rN > threshold
-        selectedIndex2 = selectedIndex2 + 1;
-        threshold = threshold + weightList(selectedIndex2, selectedIndex1);
-    end
-    
+    selectedIndex2 = randsample(1:n, 1, true, weightList(:, selectedIndex1));
 end
