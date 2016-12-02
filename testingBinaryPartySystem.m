@@ -20,10 +20,10 @@ partiesList = Parties(nParties, minDistance);
 %-------------------------------------------------------------------------
 nTrials = 10; 
 individualMatrix = zeros(4,1000,nTrials);
-
+threshold = 0.2
 for iTrial =1:nTrials
 [counts, individuals] = runMain(individuals,interactionMatrix,partiesList, proportionAffected,...
-    mediaEffectScalar,transferEffect,ruralInteraction,nRural,nTimeSteps,plotInterval);
+    mediaEffectScalar,transferEffect,threshold,ruralInteraction,nRural,nTimeSteps,plotInterval);
 plot(1:(nTimeSteps+1),counts(:,1)/1000,'DisplayName',num2str(iTrial))
 hold on 
 
