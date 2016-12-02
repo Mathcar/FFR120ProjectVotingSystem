@@ -1,9 +1,13 @@
-function [counts,individuals] = runMain(individuals,interactionMatrix,partiesList, proportionAffected,mediaEffectScalar,transferEffect,threshold,ruralInteraction,nRural,nTimeSteps,plotInterval)
+function [counts,statistics,individuals] = runMain(individuals,interactionMatrix,partiesList, proportionAffected,mediaEffectScalar,transferEffect,threshold,ruralInteraction,nRural,nTimeSteps,plotInterval)
 
 % [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps);
 time = 1;
 counts =zeros(nTimeSteps,length(partiesList));
+statistics = zeros(2,nTimeSteps);
+
 counts(time,:) = CountVotes(individuals, partiesList);
+statistics(:,time) = CalcStatistics(individuals);
+
     while( time < (nTimeSteps))
 
         time = time + 1;
@@ -25,7 +29,7 @@ counts(time,:) = CountVotes(individuals, partiesList);
 %         end
         
         counts(time,:) = CountVotes(individuals, partiesList);
-       
+       statistics(:,time) = CalcStatistics(individuals);
     end
 
 end
