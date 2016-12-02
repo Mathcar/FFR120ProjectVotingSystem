@@ -2,9 +2,9 @@ function [counts,individuals] = runMain(individuals,interactionMatrix,partiesLis
 
 % [figHandle, plotHandle] = InitPlot(individuals, partiesList, nTimeSteps);
 time = 1;
-counts =zeros(nTimeSteps +1 ,length(partiesList));
+counts =zeros(nTimeSteps,length(partiesList));
 counts(time,:) = CountVotes(individuals, partiesList);
-    while( time < (nTimeSteps+1))
+    while( time < (nTimeSteps))
 
         time = time + 1;
 
