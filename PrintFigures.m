@@ -8,6 +8,8 @@ function PrintFigures(sweepParameterFilePrefix, parameterList)
         fig_pos = fig.PaperPosition;
         fig.PaperSize = [fig_pos(3) fig_pos(4)];
         set(gca, 'LooseInset', get(gca, 'TightInset'));
+        set(gca,'TickLabelInterpreter','LaTeX','FontSize',12)
+        
         baseName = [sweepParameterFilePrefix num2str(parameterList(i))];
         print([baseName '.pdf'], '-dpdf')
         savefig([baseName '.fig'])
