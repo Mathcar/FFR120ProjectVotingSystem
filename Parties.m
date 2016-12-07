@@ -9,8 +9,8 @@ function partiesList = Parties(nParties, minDistance)
 %       partiesList: list of parties on the interval [0, 1]
 
 
-    if (minDistance*nParties > 1)
-        minDistance = 1/nParties;
+    if (minDistance*(nParties - 1) > 1)
+        minDistance = 1/(nParties - 1);
     end
     
     distanceToBeDistributed = 1 - minDistance*(nParties - 1);
