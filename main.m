@@ -1,6 +1,6 @@
 %-------------------FFR120, Voting system, Main--------------------------%
 % Individuals
-percentRural = 10;
+percentRural = 20;
 n = 1e3; 
 nCities = 5; 
 citySize = .5;
@@ -13,7 +13,7 @@ ruralInteraction = .05;
 confidenceThreshold = .1;
 interactionThreshold = 0.3;
 % Parties
-nParties = 2;
+nParties = 4;
 minDistance = .0005;
 % Media
 proportionAffected = .001;
