@@ -63,4 +63,6 @@ end
 % save pdf and fig
 PrintFigures(sweepParameterFilePrefix, mediaEffectScalarList)
 % dump data
-save('all_data.mat')
+DATE_FORMAT = 'yy-mm-dd_HH.MM.SS';
+dumpFileName = ['all_data_' datestr(datetime(),DATE_FORMAT) '.mat'];
+save(dumpFileName)
