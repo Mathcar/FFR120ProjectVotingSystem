@@ -13,9 +13,9 @@ function [counts,statistics,individuals] = RunOne(individuals,interactionMatrix,
         
         [ selectedIndex1, selectedIndex2 ] = Selection(interactionMatrix, nRural, ruralInteraction);
         % discards the selection if the difference in opinion is to large
-        while(abs(individuals(3,selectedIndex1)-individuals(3,selectedIndex2)) > interactionThreshold)
-            [ selectedIndex1, selectedIndex2 ] = Selection(interactionMatrix, nRural, ruralInteraction);
-        end
+        %while(abs(individuals(3,selectedIndex1)-individuals(3,selectedIndex2)) > interactionThreshold)
+        %    [ selectedIndex1, selectedIndex2 ] = Selection(interactionMatrix, nRural, ruralInteraction);
+        %end
         individual1 = individuals(:,selectedIndex1);
         individual2 =  individuals(:,selectedIndex2);
         
