@@ -98,7 +98,9 @@ set(gca,'TickLabelInterpreter','LaTeX','FontSize',12)
 
 DATE_FORMAT = 'yy-mm-dd_HH.MM.SS';
 dateString = datestr(datetime(),DATE_FORMAT);
-dumpFileName = ['all_data_' dateString '.mat'];
-save(dumpFileName)
 print(['conv_' dateString '.pdf'], '-dpdf')
 savefig(['conv_' dateString '.fig'])
+close(fig);
+
+dumpFileName = ['all_data_' dateString '.mat'];
+save(dumpFileName)
