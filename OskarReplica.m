@@ -9,7 +9,7 @@ nCities = 1;
 citySize = .5;
 nRural = floor(percentRural/100 * n);
 % Timesteps
-nTimeSteps = 1e7;
+nTimeSteps = 0.5e5;
 countInterval = ceil(nTimeSteps/10000);
 notificationInterval = ceil(nTimeSteps/10);
 tStartCounting = ceil(nTimeSteps/100);
@@ -23,13 +23,15 @@ nParties = 10;
 minDistance = .5;
 % Media
 proportionAffected = .001;
-mediaEffectScalarList = linspace(0.1655,0.1665,10);%linspace(.164, .164, 1);
+%mediaEffectScalarList = [0.1705 0.1732 0.1760];%linspace(.164, .164, 1);
+mediaEffectScalarList = 0.1050:0.005:0.1500;
 nRealizations = 5;
 
 winnerIndex=zeros(nRealizations,length(mediaEffectScalarList));
 tWin = zeros(nRealizations,length(mediaEffectScalarList));
 tic
 for k = 1:nRealizations
+    fprintf('k:%d/%d\n',k,nRealizations)
     [individualsInit ,interactionMatrixInit] = GenerateIndividuals(n, nCities, citySize, percentRural);
     partiesList = Parties(nParties, minDistance);
     
@@ -38,7 +40,7 @@ for k = 1:nRealizations
         interactionMatrix = interactionMatrixInit;
         
         mediaEffectScalar = mediaEffectScalarList(j);
-        fprintf('Current Media effect:%d\n',mediaEffectScalar)
+        %fprintf('Current Media effect:%d\n',mediaEffectScalar)
         
         
         time = 0;
@@ -60,9 +62,9 @@ for k = 1:nRealizations
             
             individuals = Media(individuals, proportionAffected, mediaEffectScalar);
             
-            if(mod(time,notificationInterval)==0)
-                fprintf('%d/%d\n',time,nTimeSteps)
-            end
+            %if(mod(time,notificationInterval)==0)
+            %    fprintf('%d/%d\n',time,nTimeSteps)
+            %end
             
             if((mod(time,countInterval)==0)&&(time>tStartCounting))
                 counts = CountVotes(individuals, partiesList)/n;
@@ -80,8 +82,11 @@ end
 toc
 %figure
 %plot(mediaEffectScalarList,tWin,'o')
-tWinMean = mean(tWin,1);
-tWinSigma = std(tWin,1);
+
+tWinNaN = tWin;
+tWinNaN(tWin==0) = NaN;
+tWinMean = nanmean(tWinNaN,1);
+tWinSigma = nanstd(tWinNaN,1);
 figure
 errorbar(mediaEffectScalarList,tWinMean,tWinSigma)
 
