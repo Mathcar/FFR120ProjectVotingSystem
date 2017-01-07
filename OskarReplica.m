@@ -25,7 +25,7 @@ minDistance = .5;
 proportionAffected = .001;
 %mediaEffectScalarList = [0.1705 0.1732 0.1760];%linspace(.164, .164, 1);
 mediaEffectScalarList = 0.1050:0.005:0.1500;
-nRealizations = 5;
+nRealizations = 10;
 
 winnerIndex=zeros(nRealizations,length(mediaEffectScalarList));
 tWin = zeros(nRealizations,length(mediaEffectScalarList));
